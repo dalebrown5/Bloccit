@@ -53,6 +53,8 @@ group :development, :test do
   gem 'bootstrap-sass', '~> 3.1.1'
 
   gem 'devise'
+
+  gem 'figaro', '1.0'
   
 end
 
