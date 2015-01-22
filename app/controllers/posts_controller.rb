@@ -2,6 +2,9 @@ class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
+    @comments = @post.comments
+
+    @comment = @post.comments.build
   end
 
   def new
@@ -24,7 +27,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "Post was saved."
-      redirect_to [@topic, @post]
+      redirect_to [@topic, @post] #post show page (which is nested under topics)
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new
