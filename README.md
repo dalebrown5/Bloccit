@@ -9,6 +9,6 @@ Created by:  Dale Brown
 
 With assistance from: Chris Beck
 
-Heroku app name: dalebrownbloccit
+Heroku app name: db5-bloccit
 
-[Link to: dalebrownbloccit](http://dalebrownbloccit.herokuapp.com)
+[Link to: dalebrownbloccit](http://db5-bloccit.herokuapp.com)
