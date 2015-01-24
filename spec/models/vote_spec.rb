@@ -3,30 +3,16 @@ require 'rails_helper'
 
 describe Vote do
   describe "validations" do
+    describe "value validation" do
+      it "only allows -1 or 1 as values" do
+        v = Vote.new(value: 1)
+        expect(v.valid?).to eq(true)
 
-    before do
-      @post = Post.create(title: 'post title', body: 'post body')
-      3.times { @post.votes.create(value: 1) }
-      1.times { @post.votes.create(value: 2) }
-      2.times { @post.votes.create(value: -1) }
-      1.times { @post.votes.create(value: -2) }
-    end
+        v2 = Vote.new(value: -1)
+        expect(v2.valid?).to eq(true)
 
-    describe "valid up votes" do
-      it "returns the sum of all valid up votes" do
-        expect( @posts.up_points ).to eq(3))     
-      end
-    end
-
-    describe "valid down votes" do
-      it "returns the sum of all valid down votes" do
-        expect( @posts.down_points ).to eq(-2))
-      end
-    end
-
-    describe "valid votes" do
-      it "returns the sum of all valid votes" do
-        expect( @posts.points ).to eq(1))
+        bad_v = Vote.new(value: 2)
+        expect(bad_v.valid?).to eq(false)
       end
     end
   end
