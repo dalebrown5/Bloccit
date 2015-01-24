@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     authorize @post
 
     if @post.save
+      @post.create_vote
       flash[:notice] = "Post was saved."
       redirect_to [@topic, @post] #post show page (which is nested under topics)
     else
