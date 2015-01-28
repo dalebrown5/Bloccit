@@ -3,5 +3,5 @@ class Topic < ActiveRecord::Base
 
   scope :public_view, -> { where(public: true) }
   scope :private_view, -> { where(public: false) }
-  scope :visible_to, -> (user) { user ? all : public }
+  scope :visible_to, -> (user) { user ? all : public_view }
 end
